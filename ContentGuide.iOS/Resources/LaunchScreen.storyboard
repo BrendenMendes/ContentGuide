@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -16,22 +16,36 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launchscreen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EL7-yH-70S">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EL7-yH-70S">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EL7-yH-70S" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="8C3-6K-QRb"/>
+                            <constraint firstAttribute="bottom" secondItem="EL7-yH-70S" secondAttribute="bottom" id="8xw-o8-M7X"/>
+                            <constraint firstAttribute="trailing" secondItem="EL7-yH-70S" secondAttribute="trailing" id="DGg-lO-7Im"/>
+                            <constraint firstItem="EL7-yH-70S" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="I2m-t6-8qm"/>
+                            <constraint firstAttribute="trailing" secondItem="EL7-yH-70S" secondAttribute="trailing" id="KwP-LX-iW5"/>
+                            <constraint firstAttribute="bottom" secondItem="EL7-yH-70S" secondAttribute="bottom" id="McN-Sp-Vhg"/>
+                            <constraint firstAttribute="trailing" secondItem="EL7-yH-70S" secondAttribute="trailing" constant="1" id="Slk-Tr-a7y"/>
+                            <constraint firstItem="EL7-yH-70S" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="WzZ-O3-uHL"/>
+                            <constraint firstAttribute="bottom" secondItem="EL7-yH-70S" secondAttribute="bottom" constant="1" id="g9x-m0-wJ4"/>
+                            <constraint firstItem="EL7-yH-70S" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="1" id="gWp-le-su6"/>
+                            <constraint firstItem="EL7-yH-70S" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="1" id="kca-E4-PWt"/>
+                            <constraint firstItem="EL7-yH-70S" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="vWx-lI-fGG"/>
+                            <constraint firstItem="EL7-yH-70S" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="xIv-TZ-1hd"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.6306"/>
+            <point key="canvasLocation" x="52" y="374.63060000000002"/>
         </scene>
     </scenes>
     <resources>

@@ -123,15 +123,15 @@
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\CGicon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\180x180.png" />
-    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\120x120.png" />
-    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\120x120-1.png" />
-    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\80x80.png" />
-    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\87x87.png" />
-    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\58x58.png" />
-    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\60x60.png" />
-    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\40x40.png" />
     <BundleResource Include="Resources\launchscreen.jpg" />
+    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\180.png" />
+    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\120-2.png" />
+    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\120.png" />
+    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\80-1.png" />
+    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\87-1.png" />
+    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\58-1.png" />
+    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\60-1.png" />
+    <ImageAsset Include="Assets.xcassets\CGicon.appiconset\40-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
