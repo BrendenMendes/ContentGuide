@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ContentGuide.Services;
 using ContentGuide.Views;
+using Xamarin.Essentials;
 
 namespace ContentGuide
 {
@@ -14,11 +15,37 @@ namespace ContentGuide
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new MainPage();
+            //MainPage =new NavigationPage(new AddGenre());
+        }
+
+        public void navigationMain(string to)
+        {
+            switch (to)
+            {
+                case "login":
+                    MainPage = new NavigationPage(new LoginPage()) { BarBackgroundColor = ColorConverters.FromHex("#397367"), BarTextColor = Color.White };
+                    break;
+                case "main":
+                    MainPage = new NavigationPage(new HomescreenPage());
+                    break;
+                case "list":
+                    MainPage = new NavigationPage(new GenresPage());
+                    break;
+            }
         }
 
         protected override void OnStart()
         {
+            var isLoggedIn = App.Current.Properties.ContainsKey("username") && App.Current.Properties.ContainsKey("password");
+            Console.WriteLine(isLoggedIn);
+            if (!isLoggedIn)
+            {
+                MainPage = new NavigationPage(new LoginPage()) { BarBackgroundColor = ColorConverters.FromHex("#397367"), BarTextColor = Color.White };
+            }
+            else
+            {
+                MainPage = new NavigationPage(new HomescreenPage());
+            }
         }
 
         protected override void OnSleep()
@@ -27,6 +54,16 @@ namespace ContentGuide
 
         protected override void OnResume()
         {
+            var isLoggedIn = App.Current.Properties.ContainsKey("username") && App.Current.Properties.ContainsKey("password");
+            Console.WriteLine(isLoggedIn);
+            if (!isLoggedIn)
+            {
+                MainPage = new NavigationPage(new LoginPage()) { BarBackgroundColor = ColorConverters.FromHex("#397367"), BarTextColor = Color.White };
+            }
+            else
+            {
+                MainPage = new NavigationPage(new HomescreenPage());
+            }
         }
     }
 }

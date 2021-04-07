@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            NavigationPage.HasNavigationBar="False"
+            xmlns:views="clr-namespace:ContentGuide.ViewModels"
+            x:Class="ContentGuide.Views.LoginPage">
+
+    <ContentPage.BindingContext>
+        <views:LoginViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#397367">
+            <Grid Padding="0,70,0,10">
+                <Image Source="Logo" HeightRequest="100" WidthRequest="100"/>
+            </Grid>
+            <Label Text="Content Guide" TextColor="White" FontSize="Title" HorizontalTextAlignment="Center" FontFamily=""/>
+            <Grid Padding="40, 70, 40, 50">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="2">
+                    <Entry Text="{Binding Username, Mode=TwoWay}" Placeholder="Username" />
+                    <Entry Text="{Binding Password, Mode=TwoWay}" Placeholder="Password" IsPassword="True" />
+                </StackLayout>
+            </Grid>
+            <Grid Margin="50,0,50,0">
+                <Button BackgroundColor="#35393C" TextColor="White" Grid.Row="0" Text="Login" Command="{Binding LoginCommand}" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

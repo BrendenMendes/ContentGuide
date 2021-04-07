@@ -132,6 +132,12 @@
     <ImageAsset Include="Assets.xcassets\CGicon.appiconset\58-1.png" />
     <ImageAsset Include="Assets.xcassets\CGicon.appiconset\60-1.png" />
     <ImageAsset Include="Assets.xcassets\CGicon.appiconset\40-1.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\white.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\white.imageset\white.png" />
+    <BundleResource Include="Resources\NIGHTJUMP.ttf" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Logo.imageset\white copy-1.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -156,5 +162,6 @@
   <ItemGroup>
     <Folder Include="Assets.xcassets\CGicon.appiconset\" />
     <Folder Include="Assets.xcassets\LaunchScreen.imageset\" />
+    <Folder Include="Assets.xcassets\Logo.imageset\" />
   </ItemGroup>
 </Project>

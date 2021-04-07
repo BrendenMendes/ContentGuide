@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ContentGuide.Views.GenresPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" Padding="0,10,0,0" >
+                    <StackLayout Orientation="Horizontal" Padding="5">
+                        <Label FontSize = "21" FontAttributes="Bold" Text="Select your favourite genres:" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Action" Color="#1d96f0" x:Uid="Action" CheckedChanged="Action_CheckedChanged"/>
+                        <Label Text="Action" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Animation" CheckedChanged="Animation_CheckedChanged" Color="#1d96f0" HorizontalOptions="End" VerticalOptions="Center"/>
+                        <Label Text="Animation" FontSize="24"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Adventure" CheckedChanged="Adventure_CheckedChanged" Color="#1d96f0" HorizontalOptions="End" VerticalOptions="Center"/>
+                        <Label Text="Adventure" FontSize="24"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Biography" CheckedChanged="Biography_CheckedChanged" Color="#1d96f0" HorizontalOptions="End" VerticalOptions="Center"/>
+                        <Label Text="Biography" FontSize="24"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Costume" CheckedChanged="Costume_CheckedChanged" Color="#1d96f0" HorizontalOptions="End" VerticalOptions="Center"/>
+                        <Label Text="Costume" FontSize="24"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Comedy" CheckedChanged="Comedy_CheckedChanged" Color="#1d96f0" HorizontalOptions="End" VerticalOptions="Center"/>
+                        <Label Text="Comedy" FontSize="24"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Crime" Color="#1d96f0" CheckedChanged="Crime_CheckedChanged"/>
+                        <Label Text="Crime" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Documentary" Color="#1d96f0" CheckedChanged="Documentary_CheckedChanged"/>
+                        <Label Text="Documentary" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Drama" Color="#1d96f0" CheckedChanged="Drama_CheckedChanged"/>
+                        <Label Text="Drama" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Family" Color="#1d96f0" CheckedChanged="Family_CheckedChanged"/>
+                        <Label Text="Family" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Fantasy" Color="#1d96f0" CheckedChanged="Fantasy_CheckedChanged"/>
+                        <Label Text="Fantasy" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Gameshow" Color="#1d96f0" CheckedChanged="Gameshow_CheckedChanged"/>
+                        <Label Text="Game-show" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="History" Color="#1d96f0" CheckedChanged="History_CheckedChanged"/>
+                        <Label Text="History" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Horror" Color="#1d96f0" CheckedChanged="Horror_CheckedChanged"/>
+                        <Label Text="Horror" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Kungfu" Color="#1d96f0" CheckedChanged="Kungfu_CheckedChanged"/>
+                        <Label Text="Kung fu" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Music" Color="#1d96f0" CheckedChanged="Music_CheckedChanged"/>
+                        <Label Text="Music" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Romance" Color="#1d96f0" CheckedChanged="Romance_CheckedChanged"/>
+                        <Label Text="Romance" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Scifi" Color="#1d96f0" CheckedChanged="Scifi_CheckedChanged"/>
+                        <Label Text="Scifi" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Sports" Color="#1d96f0" CheckedChanged="Sports_CheckedChanged"/>
+                        <Label Text="Sports" FontSize="23"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox x:Name="Thriller" Color="#1d96f0" CheckedChanged="Thriller_CheckedChanged"/>
+                        <Label Text="Thriller" FontSize="23"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <Button Text="Submit" HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="EndAndExpand" Clicked="Button_Clicked" FontSize="24"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

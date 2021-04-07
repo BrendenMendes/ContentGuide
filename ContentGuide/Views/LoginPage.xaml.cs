@@ -5,9 +5,9 @@ using Xamarin.Forms.Xaml;
 
 namespace ContentGuide.Views
 {
-    public partial class AboutPage : ContentPage
+    public partial class LoginPage : ContentPage
     {
-        public AboutPage()
+        public LoginPage()
         {
             InitializeComponent();
         }
