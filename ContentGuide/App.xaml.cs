@@ -13,8 +13,6 @@ namespace ContentGuide
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
             //MainPage =new NavigationPage(new AddGenre());
         }
 
