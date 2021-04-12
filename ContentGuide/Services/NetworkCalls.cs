@@ -17,7 +17,7 @@ namespace ContentGuide.Services
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/json");
-            request.AddParameter("application/json", "{\n    \"email_address\" : \"brenden.kevin@gmail.com\",\n    \"password\" : \"brenden\"\n}", ParameterType.RequestBody);
+            request.AddParameter("application/json", "{\n    \"email_address\" : "+username+",\n    \"password\" : "+password+"\n}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
             Console.WriteLine(response.Content);
             JObject joResponse = JObject.Parse(response.Content);
