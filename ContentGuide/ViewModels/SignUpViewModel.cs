@@ -1,29 +1,26 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Windows.Input;
-using Xamarin.Forms;
-using ContentGuide.Singleton;
-using ContentGuide.Services;
 using System.Text.RegularExpressions;
+using System.Windows.Input;
+using ContentGuide.Services;
+using ContentGuide.Singleton;
+using Xamarin.Forms;
 
 namespace ContentGuide.ViewModels
 {
-    public class LoginViewModel : INotifyPropertyChanged
+    public class SignUpViewModel : INotifyPropertyChanged
     {
-        string username = string.Empty;
+        string name = string.Empty;
+        string email_address = string.Empty;
         string password = string.Empty;
 
         private App app = Application.Current as App;
 
-        public LoginViewModel()
+        public SignUpViewModel()
         {
-            LoginCommand = new Command(() => {
-                authenticate();
-            });
-
             SignUpCommand = new Command(() =>
             {
-                signup();
+                signupAsync();
             });
         }
 
@@ -34,17 +31,31 @@ namespace ContentGuide.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(str));
         }
 
-        public string Username
+        public string Name
         {
-            get => username;
+            get => name;
             set
             {
-                if (username == value)
+                if (name == value)
                 {
                     return;
                 }
-                username = value;
-                OnPropertyChanged(nameof(username));
+                name = value;
+                OnPropertyChanged(nameof(name));
+            }
+        }
+
+        public string EmailAddress
+        {
+            get => email_address;
+            set
+            {
+                if (email_address == value)
+                {
+                    return;
+                }
+                email_address = value;
+                OnPropertyChanged(nameof(email_address));
             }
         }
 
@@ -62,41 +73,43 @@ namespace ContentGuide.ViewModels
             }
         }
 
-        public ICommand LoginCommand { get; set; }
         public ICommand SignUpCommand { get; set; }
 
-        private bool emailAuth(string email) {
+        private bool emailAuth(string email)
+        {
             Console.WriteLine(email);
             Regex rg = new Regex(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
             MatchCollection match = rg.Matches(email);
-            if(match.Count == 1)
+            if (match.Count == 1)
             {
                 return true;
             }
             return false;
         }
 
-        private bool passwordAuth(string password) {
+        private bool passwordAuth(string password)
+        {
             Console.WriteLine(password);
             Regex rg = new Regex("^[a-zA-Z0-9_]*$");
             MatchCollection match = rg.Matches(password);
-            if(match.Count == 1)
+            if (match.Count == 1)
             {
                 return true;
             }
             return false;
         }
 
-        private async void authenticate()
+        private async System.Threading.Tasks.Task signupAsync()
         {
-            if (emailAuth(username) && passwordAuth(password))
+            if (emailAuth(email_address) && passwordAuth(password))
             {
                 NetworkCalls networkCalls = new NetworkCalls();
-                string token = networkCalls.Login(username, password);
+                string token = networkCalls.Signup(name, email_address, password);
                 Console.WriteLine(token);
                 if (token != "null")
                 {
-                    Application.Current.Properties["username"] = username;
+                    Application.Current.Properties["username"] = name;
+                    Application.Current.Properties["emailAddress"] = email_address;
                     Application.Current.Properties["password"] = password;
                     Application.Current.Properties["token"] = token;
                     await Application.Current.SavePropertiesAsync();
@@ -104,22 +117,19 @@ namespace ContentGuide.ViewModels
                 }
                 else
                 {
-                    await Nav.Shared.DisplayAlertAsync("Alert", "There was an issue logging you in. Re-check the email address and/or password", "Try again");
-                    Username = "";
+                    await Nav.Shared.DisplayAlertAsync("Alert", "There was an issue registering your details", "Try again");
+                    name = "";
+                    EmailAddress = "";
                     Password = "";
                 }
             }
             else
             {
                 await Nav.Shared.DisplayAlertAsync("Alert", "Invalid credentials", "Try again");
-                Username = "";
+                Name = "";
+                EmailAddress = "";
                 Password = "";
             }
-        }
-
-        private void signup()
-        {
-            app.navigationMain("signup");
         }
     }
 }

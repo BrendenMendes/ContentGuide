@@ -23,6 +23,9 @@ namespace ContentGuide
                 case "login":
                     MainPage = new NavigationPage(new LoginPage()) { BarBackgroundColor = ColorConverters.FromHex("#397367"), BarTextColor = Color.White };
                     break;
+                case "signup":
+                    MainPage = new NavigationPage(new SignUpPage()) { BarBackgroundColor = ColorConverters.FromHex("#397367"), BarTextColor = Color.White };
+                    break;
                 case "main":
                     MainPage = new NavigationPage(new HomescreenPage());
                     break;

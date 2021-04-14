@@ -11,19 +11,49 @@ namespace ContentGuide.Services
 
         }
 
-        public string Login(string username, string password)
+        public string Login(string email_address, string password)
         {
             var client = new RestClient("https://content-guide.herokuapp.com/login");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/json");
-            request.AddParameter("application/json", "{\n    \"email_address\" : "+username+",\n    \"password\" : "+password+"\n}", ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-            Console.WriteLine(response.Content);
-            JObject joResponse = JObject.Parse(response.Content);
-            JObject ojObject = (JObject)joResponse;
-            string token = (string)ojObject["token"];
-            return token;
+            request.AddParameter("application/json", "{\n    \"email_address\" : \""+email_address+"\",\n    \"password\" : \""+password+"\"\n}", ParameterType.RequestBody);
+            try
+            {
+                IRestResponse response = client.Execute(request);
+                Console.WriteLine(response.Content);
+                JObject joResponse = JObject.Parse(response.Content);
+                JObject ojObject = (JObject)joResponse;
+                string token = (string)ojObject["token"];
+                return token;
+            }
+            catch(Exception error) {
+                Console.WriteLine(error);
+                return "null";
+            }
+        }
+
+        public string Signup(string username, string email_address, string password)
+        {
+            var client = new RestClient("https://content-guide.herokuapp.com/signup");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", "{\n    \"username\" : \""+username+"\",\n    \"email_address\" : \""+email_address+"\",\n    \"password\" : \""+password+"\"\n}", ParameterType.RequestBody);
+            try
+            {
+                IRestResponse response = client.Execute(request);
+                Console.WriteLine(response.Content);
+                JObject joResponse = JObject.Parse(response.Content);
+                JObject ojObject = (JObject)joResponse;
+                string token = (string)ojObject["token"];
+                return token;
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+                return "null";
+            }
         }
     }
 }
