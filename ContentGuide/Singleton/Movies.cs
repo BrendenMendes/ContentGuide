@@ -3,11 +3,10 @@ using Newtonsoft.Json;
 
 namespace ContentGuide.ViewModels
 {
-    public class Trending
+    public class Movies
     {
-        public Trending()
+        public Movies()
         {
-
         }
 
         [JsonProperty("title")]
@@ -15,5 +14,8 @@ namespace ContentGuide.ViewModels
 
         [JsonProperty("poster_path")]
         public string Image { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
     }
 }

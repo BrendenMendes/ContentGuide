@@ -3,16 +3,20 @@ using Newtonsoft.Json;
 
 namespace ContentGuide.ViewModels
 {
-    public class TVshows
+    public class Trending
     {
-        public TVshows()
+        public Trending()
         {
+
         }
 
-        [JsonProperty("name")]
+        [JsonProperty("title")]
         public string Title { get; set; }
 
         [JsonProperty("poster_path")]
         public string Image { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
     }
 }
