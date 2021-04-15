@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:ContentGuide.ViewModels" x:Class="ContentGuide.Views.HomePage">
+
+    <ContentPage.BindingContext>
+        <views:HomeViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView Orientation="Vertical">
+        <ContentView>
+            <StackLayout Spacing="0">
+                <!--Trending-->
+                <CarouselView x:Name="TrendingView" HeightRequest="300" ItemsSource="{Binding Trendings}" PeekAreaInsets="70">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BorderColor="DarkGray" CornerRadius="5" Margin="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                                    <StackLayout>
+                                        <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200" WidthRequest="150" HorizontalOptions="Center" />
+                                        <Label Text="{Binding Title}" HorizontalOptions="Center" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+
+                <!-- Movies collection -->
+                <CarouselView x:Name="MoviesView" HeightRequest="300" ItemsSource="{Binding Movies}" PeekAreaInsets="70">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BorderColor="DarkGray" CornerRadius="5" Margin="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                                    <StackLayout>
+                                        <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200" WidthRequest="150" HorizontalOptions="Center" />
+                                        <Label Text="{Binding Title}" HorizontalOptions="Center" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            
+
+                <!-- TV show collection-->
+                <CarouselView x:Name="TvshowsView" HeightRequest="300" ItemsSource="{Binding Tvshows}" PeekAreaInsets="70">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" BorderColor="DarkGray" CornerRadius="5" Margin="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                                    <StackLayout>
+                                        <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200" WidthRequest="150" HorizontalOptions="Center" />
+                                        <Label Text="{Binding Title}" HorizontalOptions="Center" />
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+            </StackLayout>
+        </ContentView>
+    </ScrollView>
+</ContentPage>

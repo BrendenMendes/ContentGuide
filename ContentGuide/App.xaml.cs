@@ -27,7 +27,7 @@ namespace ContentGuide
                     MainPage = new NavigationPage(new SignUpPage()) { BarBackgroundColor = ColorConverters.FromHex("#397367"), BarTextColor = Color.White };
                     break;
                 case "main":
-                    MainPage = new NavigationPage(new HomescreenPage());
+                    MainPage = new NavigationPage(new HomePage());
                     break;
                 case "list":
                     MainPage = new NavigationPage(new GenresPage());
@@ -45,7 +45,7 @@ namespace ContentGuide
             }
             else
             {
-                MainPage = new NavigationPage(new HomescreenPage());
+                MainPage = new NavigationPage(new HomePage());
             }
         }
 
@@ -63,7 +63,7 @@ namespace ContentGuide
             }
             else
             {
-                MainPage = new NavigationPage(new HomescreenPage());
+                MainPage = new NavigationPage(new HomePage());
             }
         }
     }

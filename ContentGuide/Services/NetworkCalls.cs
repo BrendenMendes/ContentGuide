@@ -55,5 +55,66 @@ namespace ContentGuide.Services
                 return "null";
             }
         }
+
+        public string Trending(string token)
+        {
+            var client = new RestClient("https://content-guide.herokuapp.com/trending");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Authorization", "Bearer "+token);
+            try
+            {
+                IRestResponse response = client.Execute(request);
+                Console.WriteLine(response.Content);
+                return response.Content;
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+                return "null";
+            }
+        }
+
+        public string Movies(string token)
+        {
+            var client = new RestClient("https://content-guide.herokuapp.com/personalized-movies");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Authorization", "Bearer "+token);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", "{\n    \"categories\" : [\n        \"Action\",\"Adventure\"\n    ]\n}", ParameterType.RequestBody);
+            try
+            {
+                IRestResponse response = client.Execute(request);
+                Console.WriteLine(response.Content);
+                return response.Content;
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+                return "null";
+            }
+        }
+
+        public string TVshows(string token)
+        {
+            var client = new RestClient("https://content-guide.herokuapp.com/personalized-tv-shows");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Authorization", "Bearer " + token);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", "{\n    \"categories\" : [\n        \"Action\",\"Adventure\"\n    ]\n}", ParameterType.RequestBody);
+            try
+            {
+                IRestResponse response = client.Execute(request);
+                Console.WriteLine(response.Content);
+                return response.Content;
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+                return "null";
+            }
+        }
     }
 }
