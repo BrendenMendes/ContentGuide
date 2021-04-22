@@ -5,17 +5,21 @@ using Xamarin.Forms;
 using ContentGuide.Singleton;
 using ContentGuide.Services;
 using System.Text.RegularExpressions;
+using ContentGuide.Views;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace ContentGuide.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
+        public INavigation Navigation { get; set; }
         string username = string.Empty;
         string password = string.Empty;
 
         private App app = Application.Current as App;
 
-        public LoginViewModel()
+        public LoginViewModel(INavigation navigation)
         {
             LoginCommand = new Command(() => {
                 authenticate();
@@ -25,6 +29,7 @@ namespace ContentGuide.ViewModels
             {
                 signup();
             });
+            this.Navigation = navigation;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -92,15 +97,27 @@ namespace ContentGuide.ViewModels
             if (emailAuth(username) && passwordAuth(password))
             {
                 NetworkCalls networkCalls = new NetworkCalls();
-                string token = networkCalls.Login(username, password);
-                Console.WriteLine(token);
-                if (token != "null")
+                string loginData = networkCalls.Login(username, password);
+                var data = JsonConvert.DeserializeObject<Login>(loginData);
+                Console.WriteLine(data.Token);
+                Console.WriteLine(data.Name);
+                Console.WriteLine(data.Preferences.Count());
+                if (data.Token != "null")
                 {
                     Application.Current.Properties["username"] = username;
+                    Application.Current.Properties["name"] = data.Name;
                     Application.Current.Properties["password"] = password;
-                    Application.Current.Properties["token"] = token;
+                    Application.Current.Properties["token"] = data.Token;
+                    if (data.Preferences.Count() > 0)
+                    {
+                        Application.Current.Properties["preferences"] = JsonConvert.SerializeObject(data.Preferences);
+                        app.navigationMain("home");
+                    }
+                    else
+                    {
+                        app.navigationMain("genre");
+                    }
                     await Application.Current.SavePropertiesAsync();
-                    app.navigationMain("main");
                 }
                 else
                 {
@@ -119,7 +136,8 @@ namespace ContentGuide.ViewModels
 
         private void signup()
         {
-            app.navigationMain("signup");
+            //app.navigationMain("signup");
+            Navigation.PushAsync(new SignUpPage());
         }
     }
 }

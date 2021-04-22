@@ -21,16 +21,19 @@ namespace ContentGuide
             switch (to)
             {
                 case "login":
-                    MainPage = new NavigationPage(new LoginPage()) { BarBackgroundColor = ColorConverters.FromHex("#397367"), BarTextColor = Color.White };
+                    MainPage = new NavigationPage(new LoginPage());
                     break;
                 case "signup":
-                    MainPage = new NavigationPage(new SignUpPage()) { BarBackgroundColor = ColorConverters.FromHex("#397367"), BarTextColor = Color.White };
+                    MainPage = new NavigationPage(new SignUpPage());
                     break;
-                case "main":
+                case "genre":
+                    MainPage = new NavigationPage(new GenresPage());
+                    break;
+                case "home":
                     MainPage = new NavigationPage(new HomePage());
                     break;
-                case "list":
-                    MainPage = new NavigationPage(new GenresPage());
+                case "details":
+                    MainPage = new NavigationPage(new DetailsPage());
                     break;
             }
         }
@@ -41,7 +44,7 @@ namespace ContentGuide
             Console.WriteLine(isLoggedIn);
             if (!isLoggedIn)
             {
-                MainPage = new NavigationPage(new LoginPage()) { BarBackgroundColor = ColorConverters.FromHex("#397367"), BarTextColor = Color.White };
+                MainPage = new NavigationPage(new LoginPage());
             }
             else
             {
@@ -59,7 +62,7 @@ namespace ContentGuide
             Console.WriteLine(isLoggedIn);
             if (!isLoggedIn)
             {
-                MainPage = new NavigationPage(new LoginPage()) { BarBackgroundColor = ColorConverters.FromHex("#397367"), BarTextColor = Color.White };
+                MainPage = new NavigationPage(new LoginPage());
             }
             else
             {

@@ -113,7 +113,7 @@ namespace ContentGuide.ViewModels
                     Application.Current.Properties["password"] = password;
                     Application.Current.Properties["token"] = token;
                     await Application.Current.SavePropertiesAsync();
-                    app.navigationMain("main");
+                    app.navigationMain("login");
                 }
                 else
                 {

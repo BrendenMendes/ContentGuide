@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             NavigationPage.HasNavigationBar="False"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:ContentGuide.ViewModels"
              x:Class="ContentGuide.Views.SignUpPage">
@@ -10,8 +9,8 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#397367">
-            <Grid Padding="0,70,0,10">
+        <StackLayout BackgroundColor="#19659F">
+            <Grid Padding="0,30,0,10">
                 <Image Source="Logo" HeightRequest="150" WidthRequest="150"/>
             </Grid>
             <Label Text="Content Guide" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="Center" FontFamily=""/>

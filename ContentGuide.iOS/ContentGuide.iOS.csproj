@@ -135,7 +135,6 @@
     <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
     <ImageAsset Include="Resources\Assets.xcassets\white.imageset\Contents.json" />
     <ImageAsset Include="Resources\Assets.xcassets\white.imageset\white.png" />
-    <BundleResource Include="Resources\NIGHTJUMP.ttf" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Logo.imageset\white copy-1.png" />
   </ItemGroup>

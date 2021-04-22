@@ -1,64 +1,84 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:ContentGuide.ViewModels" x:Class="ContentGuide.Views.HomePage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ContentGuide.ViewModels"
+             x:Class="ContentGuide.Views.HomePage"
+             NavigationPage.HasNavigationBar="False">
 
-    <ContentPage.BindingContext>
-        <views:HomeViewModel />
-    </ContentPage.BindingContext>
-
-    <ScrollView Orientation="Vertical">
+    <ScrollView Orientation="Vertical" BackgroundColor="#134E7C">
         <ContentView>
             <StackLayout Spacing="0">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Username}" Margin="20,30,10,0" FontSize="Title" TextColor="White" FontAttributes="Bold"/>
+                </StackLayout>
                 <!--Trending-->
-                <CarouselView x:Name="TrendingView" HeightRequest="300" ItemsSource="{Binding Trendings}" PeekAreaInsets="70">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Here's what trending right now!" Margin="20,20,0,10" FontSize="Medium" TextColor="White" FontAttributes="None"/>
+                </StackLayout>
+                <CarouselView ItemsSource="{Binding Trendings}" x:Name="TrendingView" HeightRequest="250" PeekAreaInsets="100" Margin="0,0,0,10">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout>
-                                <Frame HasShadow="True" BorderColor="DarkGray" CornerRadius="5" Margin="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
-                                    <StackLayout>
-                                        <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200" WidthRequest="150" HorizontalOptions="Center" />
-                                        <Label Text="{Binding Title}" HorizontalOptions="Center" />
-                                    </StackLayout>
-                                </Frame>
+                            <StackLayout Spacing="0">  
+                                <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding Image}">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommand}" NumberOfTapsRequired="1" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" FontSize="14" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
                             </StackLayout>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
 
 
-                <!-- Movies collection -->
-                <CarouselView x:Name="MoviesView" HeightRequest="300" ItemsSource="{Binding Movies}" PeekAreaInsets="70">
+
+                <!--Movies collection--> 
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Recommended movies" Margin="20,20,0,10" FontSize="Title" TextColor="White" FontAttributes="None"/>
+                </StackLayout>
+                <CarouselView ItemsSource="{Binding Movies}" x:Name="MoviesView" HeightRequest="250" PeekAreaInsets="100" Margin="0,0,0,10">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout>
-                                <Frame HasShadow="True" BorderColor="DarkGray" CornerRadius="5" Margin="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
-                                    <StackLayout>
-                                        <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200" WidthRequest="150" HorizontalOptions="Center" />
-                                        <Label Text="{Binding Title}" HorizontalOptions="Center" />
-                                    </StackLayout>
-                                </Frame>
+                            <StackLayout Spacing="0">  
+                                <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Uid="imgview" Source="{Binding Image}">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommand}" NumberOfTapsRequired="1" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" FontSize="14" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
                             </StackLayout>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
             
 
-                <!-- TV show collection-->
-                <CarouselView x:Name="TvshowsView" HeightRequest="300" ItemsSource="{Binding Tvshows}" PeekAreaInsets="70">
+                <!--TV show collection-->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Recommended TV shows" Margin="20,20,0,10" FontSize="Title" TextColor="White" FontAttributes="None"/>
+                </StackLayout>
+                <CarouselView ItemsSource="{Binding Tvshows}" x:Name="TvShowsView" HeightRequest="250" PeekAreaInsets="100" Margin="0,0,0,10">
                     <CarouselView.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout>
-                                <Frame HasShadow="True" BorderColor="DarkGray" CornerRadius="5" Margin="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
-                                    <StackLayout>
-                                        <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="200" WidthRequest="150" HorizontalOptions="Center" />
-                                        <Label Text="{Binding Title}" HorizontalOptions="Center" />
-                                    </StackLayout>
-                                </Frame>
+                            <StackLayout Spacing="0">  
+                                <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Uid="imgview" Source="{Binding Image}">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommand}" NumberOfTapsRequired="1" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" FontSize="14" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
                             </StackLayout>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
 
-            </StackLayout>
+
+            </StackLayout>        
         </ContentView>
     </ScrollView>
 </ContentPage>

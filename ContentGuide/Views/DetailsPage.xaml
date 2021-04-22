@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:ContentGuide.ViewModels"
+    x:Class="ContentGuide.Views.DetailsPage"
+    BackgroundColor="#134E7C">
+
+    <ContentPage.BindingContext>
+        <views:DetailsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <WebView Source="{Binding Trailer}" HeightRequest="200" />
+                <Grid>
+                    <Label x:Name="Title" Text="{Binding Title}" TextColor="White" FontSize="Large" HorizontalTextAlignment="Start" Margin="15, 10, 0, 0" FontAttributes="Bold" />
+                    <Label x:Name="Rated" Text="{Binding Rated}" TextColor="White" FontSize="Medium" HorizontalTextAlignment="End" Margin="0,15,20,0" />
+                </Grid>
+                <Label Text="Synopsis" FontSize="Subtitle" TextColor="White" HorizontalTextAlignment="Start" Margin="15, 20, 0, 0" />
+                <Label x:Name="Synopsis" Text="{Binding Plot}" TextColor="White" FontSize="Default" HorizontalTextAlignment="Start" Margin="10, 10, 10, 10" />
+                <Grid Margin="0, 10, 0, 10">
+                    <StackLayout>
+                        <Label Text="Released" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="Start" Margin="15, 10, 0, 0" FontAttributes="None" />
+                        <Label x:Name="Released" TextColor="White" Text="{Binding Released}" FontSize="Medium" HorizontalTextAlignment="Start" Margin="15, 10, 0, 0" FontAttributes="None" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Runtime" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="End" Margin="0, 10, 15, 0" FontAttributes="None" />
+                        <Label x:Name="Runtime" TextColor="White" Text="{Binding Runtime}" FontSize="Medium" HorizontalTextAlignment="End" Margin="0, 10, 15, 0" FontAttributes="None" />
+                    </StackLayout>
+                </Grid>
+                <Grid Margin="0, 20, 0, 10">
+                    <StackLayout>
+                        <Label Text="IMDB Ratings" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="Start" Margin="15, 5, 0, 0" FontAttributes="None" />
+                        <Label x:Name="imdbRatings" TextColor="White" Text="{Binding imdbRating}" FontSize="Medium" HorizontalTextAlignment="Start" Margin="15, 10, 0, 0" FontAttributes="None" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="IMDB Votes" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="End" Margin="0, 10, 15, 0" FontAttributes="None" />
+                        <Label x:Name="imdbVotes" TextColor="White" Text="{Binding imdbVotes}" FontSize="Medium" HorizontalTextAlignment="End" Margin="0, 10, 15, 0" FontAttributes="None" />
+                    </StackLayout>
+                </Grid>
+                <Label Text="Languages" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="Start" Margin="15, 20, 0, 0" FontAttributes="None" />
+                <Label x:Name="Languages" TextColor="White" Text="{Binding Language}" FontSize="Medium" HorizontalTextAlignment="Start" Margin="15, 5, 0, 10" FontAttributes="None" />
+
+                <Label Text="Cast" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="Start" Margin="15, 20, 0, 0" />
+                <Label x:Name="Cast" TextColor="White" Text="{Binding Actors}" FontSize="Medium" Margin="15, 5, 0, 10" />
+
+                <Label Text="Director" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="Start" Margin="15, 20, 0, 0" />
+                <Label x:Name="Director" TextColor="White" Text="{Binding Director}" FontSize="Medium" Margin="15, 5, 0, 10" />
+
+                <Label Text="Writer" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="Start" Margin="15, 20, 0, 0" />
+                <Label x:Name="Writer" TextColor="White" Text="{Binding Writer}" FontSize="Medium" Margin="15, 5, 0, 10" />
+
+                <Label Text="Production" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="Start" Margin="15, 20, 0, 0" />
+                <Label x:Name="Production" TextColor="White" Text="{Binding Production}" FontSize="Medium" Margin="15, 5, 0, 10" />
+
+                <Label Text="Awards" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="Start" Margin="15, 20, 0, 0" />
+                <Label x:Name="Awards" TextColor="White" Text="{Binding Awards}" FontSize="Medium" Margin="15, 5, 0, 10" />
+
+                <Label Text="Box Office" TextColor="White" FontSize="Subtitle" HorizontalTextAlignment="Start" Margin="15, 20, 0, 0" />
+                <Label x:Name="BoxOffice" TextColor="White" Text="{Binding BoxOffice}" FontSize="Medium" Margin="15, 5, 0, 10" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>
