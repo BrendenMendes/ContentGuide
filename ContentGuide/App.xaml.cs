@@ -13,7 +13,6 @@ namespace ContentGuide
         public App()
         {
             InitializeComponent();
-            //MainPage =new NavigationPage(new AddGenre());
         }
 
         public void navigationMain(string to)
